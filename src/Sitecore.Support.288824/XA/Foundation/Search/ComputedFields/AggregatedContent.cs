@@ -50,10 +50,13 @@ namespace Sitecore.Support.XA.Foundation.Search.ComputedFields
         return computeFieldValue;
       }
 
-      if (!item.IsPageItem() && !IsPointOfInterest.Verify(item))
+
+      #region Remove code
+      /*if (!item.IsPageItem() && !IsPointOfInterest.Verify(item))
       {
         return null;
-      }
+      }*/
+      #endregion
 
       ISet<Item> dataFolders = new HashSet<Item>();
       foreach (Item folder in new[] { ServiceLocator.ServiceProvider.GetService<IMultisiteContext>().GetDataItem(item), ServiceLocator.ServiceProvider.GetService<ILocalDatasourceService>().GetPageDataItem(item) })
